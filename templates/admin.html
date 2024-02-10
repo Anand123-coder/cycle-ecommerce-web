@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+      function goToAdmin() {
+          window.location.href = '/admin';
+      }
+      function goTodash(){
+          window.location.href='/adminpanel'
+      }
+  </script>
+   
+</head>
+<body>
+  <nav class="navbar  adminnav">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-light me-2" type="button" onclick="goTodash()">Dashboard</button>
+      <button class="btn btn-light me-2" type="button" onclick="goToAdmin()">New upload</button>
+    </form>
+  </nav>
+
+  <div class="text-center formpart" style="max-width: 540px; margin: auto;">
+    <form class="inputform" method="post" enctype="multipart/form-data" action="{{ url_for('admin') }}">
+        <div class="mb-3">
+           <label for="cycle_name" class="form-label"style="color: white;">Cycle Name</label>
+           <input type="text" class="form-control" id="cycle_name" name="cycle_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="cycle_description" class="form-label" style="color: white;">Cycle Description</label>
+            <input type="text" class="form-control" id="cycle_description" name="cycle_description" required>
+        </div>
+        <div class="mb-3">
+            <label for="cycle_price" class="form-label"  style="color: white;">Cycle Price</label>
+            <input type="number" class="form-control" id="cycle_price" name="cycle_price" required>
+        </div>
+        <div class="mb-3">
+           <label for="cycle_image" class="form-label"style="color: white;">Cycle Image</label>
+           <input type="file" class="form-control" id="cycle_image" name="cycle_image" required>
+        </div>
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+</body>
+</html>

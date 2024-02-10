@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script>
+        function goToAdmin() {
+            window.location.href = '/admin';
+        }
+        function goTodash(){
+            window.location.href='/adminpanel'
+        }
+        function goToHome(){
+            window.location.href='/'
+        }
+    </script>
+
+</head>
+<body>
+
+    <nav class="navbar  adminnav">
+        <form class="container-fluid justify-content-start">
+          <button class="btn btn-light me-2" type="button" onclick="goTodash()">Dashboard</button>
+          <button class="btn btn-light me-2" type="button" onclick="goToAdmin()">New upload</button>
+          <button class="btn btn-light me-2" type="button" onclick="goToHome()">Back Home</button>
+        </form>
+    </nav>
+    <br><br><br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <div class="card-body " style="background-color:  #325662;">
+              <h5 class="card-title"style="color: white;">Card title</h5>
+              <p class="card-text " style="color: white;">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body "style="background-color:  #325662;">
+              <h5 class="card-title"style="color: white;">Card title</h5>
+              <p class="card-text " style="color: white;">
+                This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body "style="background-color:  #325662;">
+              <h5 class="card-title"style="color: white;">Card title</h5>
+              <p class="card-text"style="color: white;">This is a longer card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <table class="table" style="margin: 60px;">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Cycle Name</th>
+            <th scope="col">Cycle prize</th>
+            <th scope="col">Operation</th>
+          </tr>
+        </thead>
+      {% for cycle in cycles %}
+      <tbody>
+        <tr>
+          <th scope="row">{{ cycle.id }}</th>
+          <td>{{ cycle.cycle_name }}</td>
+          <td>Price: $ {{ cycle.cycle_price }}</td>
+          <td><a  class="deletetag" href="/delete/{{ cycle.id }}">Delete</a></td>
+        </tr>
+        <br><br>
+       </tbody>
+      {% endfor %}
+      </table>
+</body>
+</html>

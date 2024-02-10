@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cycle web</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style/style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+        <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+</head>
+<body>
+    <section class="header_section header_bg" style="position: relative;">
+
+        {% include 'navbar.html' %}
+      
+      <br><br><br>
+      
+      {% include 'carousel.html' %}
+      </section>
+
+
+      {% block content %}
+      
+      
+      {% endblock %}
+
+
+
+
+
+
+      {% include 'footer.html' %}
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+</body>
+</html>
