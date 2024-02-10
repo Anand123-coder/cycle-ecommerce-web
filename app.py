@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost/cycles'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/cycles'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.config['UPLOAD_FOLDER'] = 'uploads'
